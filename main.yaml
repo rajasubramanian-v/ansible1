@@ -3,6 +3,17 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Print Hello World message
-      ansible.builtin.debug:
-        msg: "Hello, World!"
+  - name: Print Hello World message
+    ansible.builtin.debug:
+      msg: "Hello, World!"
+  - name: Install python
+    ansible.builtin.apt:
+      name:
+      - python
+      - python3-pip
+      state: present
+  - name: Install http
+    ansible.builtin.apt:
+      name: httpd
+      state: present
+    when: ansible_os_family =="RedHat"
