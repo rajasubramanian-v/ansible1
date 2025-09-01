@@ -1,7 +1,6 @@
 ---
 - name: Hello World Playbook
   hosts: localhost
-  connection: local
   tasks:
   - name: Print Hello World message
     ansible.builtin.debug:
@@ -12,8 +11,9 @@
       - python
       - python3-pip
       state: present
-  - name: Install http
-    ansible.builtin.apt:
-      name: httpd
-      state: present
-    when: ansible_os_family =="RedHat"
+    when: ansible_os_family == "RedHat"
+  # - name: Install http
+  #   ansible.builtin.apt:
+  #     name: httpd
+  #     state: present
+  #   when: ansible_os_family =="RedHat"
