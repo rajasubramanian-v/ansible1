@@ -1,10 +1,7 @@
----
-- name: Hello World Playbook
+- name: Install and Start http Playbook
   hosts: localhost
-  vars:
-    ansible_python_interpreter: /usr/libexec/platform-python
   tasks:
     - name: Install http
-      ansible.builtin.yum:
+      package:
         name: httpd
         state: present
