@@ -2,9 +2,8 @@
 - name: Hello World Playbook
   hosts: localhost
   tasks:
-  - name: Print Hello World message
-    ansible.builtin.debug:
-      msg: "Hello, World!"
+  - name: Install python necessary packages
+    ansible.builtin.raw: yum install -y python3-dnf
   - name: Install python
     ansible.builtin.yum:
       name:
