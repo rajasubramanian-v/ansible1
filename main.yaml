@@ -3,7 +3,8 @@
   hosts: localhost
   tasks:
   - name: Install python necessary packages
-    ansible.builtin.raw: yum install -y python3-dnf
+    ansible.builtin.raw: |
+      dnf install -y python3-dnf || yum install -y python3-dnf
   - name: Install python
     ansible.builtin.yum:
       name:
