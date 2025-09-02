@@ -1,6 +1,10 @@
 - name: Install and Start http Playbook
   hosts: localhost
   tasks:
+    - name: Gather facts to detect system python
+      ansible.builtin.setup:
+        gather_subset:
+          - 'min'
     - name: Install http
       package:
         name: httpd
