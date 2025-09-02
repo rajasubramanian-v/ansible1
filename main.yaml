@@ -2,18 +2,8 @@
 - name: Hello World Playbook
   hosts: localhost
   tasks:
-  - name: Install python necessary packages
-    ansible.builtin.raw: |
-      dnf install -y python3-dnf || yum install -y python3-dnf
-  - name: Install python
-    ansible.builtin.yum:
-      name:
-      - python
-      - python3-pip
-      state: present
-    when: ansible_os_family =="RedHat"
   - name: Install http
-    ansible.builtin.apt:
+    ansible.builtin.yum:
       name: httpd
       state: present
-    when: ansible_os_family =="Debian"
+    when: ansible_os_family =="RedHat"
