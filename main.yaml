@@ -2,9 +2,9 @@
 - name: Hello World Playbook
   hosts: localhost
   vars:
-    ansible_python_interpreter: /usr/bin/python3
+    ansible_python_interpreter: /usr/libexec/platform-python
   tasks:
   - name: Install http
-    ansible.builtin.dnf:
+    ansible.builtin.yum:
       name: httpd
       state: present
